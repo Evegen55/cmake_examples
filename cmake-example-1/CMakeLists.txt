@@ -90,3 +90,15 @@ endfunction()
 # Напечатает "Something happened with the function!"
 demonstrate_func()
 message("Something happened with the function!")
+
+# Функция, определяющая переменную "VARIABLE" со значением
+# "In the parent scope..." в родительской области видимости:
+function(demonstrate_variable)
+    set(VARIABLE "In the parent scope..." PARENT_SCOPE)
+endfunction()
+
+# Определить переменную "VARIABLE" в текущей области видимости:
+demonstrate_variable()
+
+# Теперь возможно получить к переменной "VARIABLE" доступ:
+message("'VARIABLE' is equal to: ${VARIABLE}")
